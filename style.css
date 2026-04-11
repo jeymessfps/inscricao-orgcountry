@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* FUNDO */
+body::before {
+  content: "";
+  position: absolute;
+  width: 1200px;
+  height: 1200px;
+  background: url("assets/bg.png") no-repeat center;
+  background-size: contain;
+  left: -182px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.08;
+  z-index: 0;
+}
+
+/* INTRO */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#intro img {
+  width: 180px;
+  animation: zoom 1.2s ease;
+}
+
+@keyframes zoom {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* CARD */
+.card {
+  display: flex;
+  background: #f3f3f3;
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
+  position: relative;
+  z-index: 1;
+
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  animation: cardEnter 0.8s ease forwards;
+  animation-delay: 1.4s;
+}
+
+@keyframes cardEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ESQUERDA */
+.left {
+  width: 300px;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* DIREITA */
+.right {
+  width: 320px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* TÍTULO */
+.right h2 {
+  text-align: center;
+  color: #000;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* LINHA */
+.linha {
+  width: 40px;
+  height: 2px;
+  background: #424141;
+  margin: 8px auto 20px;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ROW */
+.row {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+/* FIELD */
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL */
+.field label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+/* INPUT */
+input,
+select {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background: transparent;
+  padding: 6px 0;
+  outline: none;
+  font-size: 13px;
+}
+
+/* FOCUS */
+input:focus,
+select:focus {
+  border-bottom: 2px solid #000;
+}
+
+/* BOTÃO */
+button {
+  margin-top: 10px;
+  width: 140px;
+  align-self: center;
+  background: #4c4e4d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #333;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .card {
+    flex-direction: column;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .left {
+    width: 100%;
+    height: 160px;
+  }
+
+  .left img {
+    width: 140px;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  input,
+  select {
+    font-size: 16px;
+  }
+}
